@@ -1,0 +1,18 @@
+{
+	"extension": {
+		"version": "0.6.1",
+		"json": 2
+	},
+	"project": {
+		"name": "Skills_Code",
+		"description": "42863M Skills Code!",
+		"creationDate": "2/11/2025, 4:00:49 PM",
+		"platform": "V5",
+		"language": "python",
+		"slot": 2,
+		"sdkVersion": "V5_1_0_1_25",
+		"python": {
+			"main": "src/main.py"
+		}
+	}
+}
