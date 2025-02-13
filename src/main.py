@@ -79,18 +79,6 @@ def autonomous():
     drivetrain.turn_for(LEFT, 90, DEGREES)
     # puts goal in corner
     drivetrain.drive_for(FORWARD, 24, INCHES)
-    # waits for the redirect to score the ring
-    wait(3, SECONDS)
-    # releases the mobile goal
-    digital_out_a.set(False)
-    # moves to middle of field
-    drivetrain.drive_for(REVERSE, 36, INCHES)
-    # turns to face center of field
-    drivetrain.turn_for(RIGHT, 90, DEGREES)
-    # drives to center of field
-    drivetrain.drive_for(FORWARD, 36, INCHES)
-    # spins around in victory dance
-    drivetrain.turn_for(LEFT, 36000, DEGREES)
 
 def user_control():
     while True:
