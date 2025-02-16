@@ -42,39 +42,31 @@ def autonomous():
     # speeds up the redirect motors
     redirect_motors.set_velocity(100, PERCENT)
     # backs robot into mobile goal
-    drivetrain.drive_for(FORWARD, 24, INCHES)
+    drivetrain.drive_for(FORWARD, 8, INCHES)
     # grabs mobile goal
     digital_out_a.set(True)
     # spins redirect motors to score preload on the mobile goal
     redirect_motors.spin(REVERSE)
-    # turns to pick up a ring
-    drivetrain.turn_for(LEFT, 90, DEGREES)
-    # moves to pick up a ring
-    drivetrain.drive_for(REVERSE, 15, INCHES)
+    # turns to move to corner
+    drivetrain.turn_for(LEFT, 100, DEGREES)
+    # moves to corner
+    drivetrain.drive_for(FORWARD, 30, INCHES)
     # turns to face the corner
-    drivetrain.turn_for(LEFT, 90, DEGREES)
-    # waits to pick up ring succesfully
-    wait(3, SECONDS)
+    drivetrain.turn_for(LEFT, 100, DEGREES)
     # moves to the corner
-    drivetrain.drive_for(FORWARD, 24, INCHES)
+    drivetrain.drive_for(FORWARD, 8, INCHES)
     # stops the redirect motors
     redirect_motors.stop()
     # releases the mobile goal
     digital_out_a.set(False)
     # moves back in line with the other goal
-    drivetrain.drive_for(REVERSE, 24, INCHES)
+    drivetrain.drive_for(REVERSE, 12, INCHES)
     # turns to face the goal
-    drivetrain.turn_for(RIGHT, 90, DEGREES)
+    drivetrain.turn_for(LEFT, 90, DEGREES)
     # backs up to the goal
-    drivetrain.drive_for(FORWARD, 108, INCHES)
+    drivetrain.drive_for(FORWARD, 144, INCHES)
     # grabs mobile goal
     digital_out_a.set(True)
-    # turns around
-    drivetrain.turn_for(RIGHT, 180, DEGREES)
-    # starts spinning redirect
-    redirect_motors.spin(REVERSE)
-    # scores ring
-    drivetrain.drive_for(FORWARD, 36, INCHES)
     # turns to face corner
     drivetrain.turn_for(LEFT, 90, DEGREES)
     # puts goal in corner
