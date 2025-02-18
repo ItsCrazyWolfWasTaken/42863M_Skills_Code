@@ -48,29 +48,27 @@ def autonomous():
     # spins redirect motors to score preload on the mobile goal
     redirect_motors.spin(REVERSE)
     # turns to move to corner
-    drivetrain.turn_for(LEFT, 100, DEGREES)
+    drivetrain.turn_for(LEFT, 150, DEGREES)
     # moves to corner
-    drivetrain.drive_for(FORWARD, 30, INCHES)
+    drivetrain.drive_for(FORWARD, 36, INCHES)
     # turns to face the corner
     drivetrain.turn_for(LEFT, 100, DEGREES)
-    # moves to the corner
-    drivetrain.drive_for(FORWARD, 8, INCHES)
     # stops the redirect motors
     redirect_motors.stop()
     # releases the mobile goal
     digital_out_a.set(False)
     # moves back in line with the other goal
-    drivetrain.drive_for(REVERSE, 12, INCHES)
+    drivetrain.drive_for(REVERSE, 36, INCHES)
     # turns to face the goal
-    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.turn_for(RIGHT, 80, DEGREES)
     # backs up to the goal
     drivetrain.drive_for(FORWARD, 144, INCHES)
     # grabs mobile goal
     digital_out_a.set(True)
     # turns to face corner
-    drivetrain.turn_for(LEFT, 90, DEGREES)
+    drivetrain.turn_for(LEFT, 150, DEGREES)
     # puts goal in corner
-    drivetrain.drive_for(FORWARD, 24, INCHES)
+    drivetrain.drive_for(FORWARD, 36, INCHES)
 
 def user_control():
     while True:
