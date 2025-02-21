@@ -17,8 +17,8 @@ right_b = Motor(Ports.PORT19, GearSetting.RATIO_18_1, True)
 left_intake = Motor(Ports.PORT16, GearSetting.RATIO_18_1, False)
 right_intake = Motor(Ports.PORT15, GearSetting.RATIO_18_1, True)
 # declaring the motors (left_redirect and right_redirect are the left and right redirect motors, respectively)
-left_redirect = Motor(Ports.PORT17, GearSetting.RATIO_18_1, False)
-right_redirect = Motor(Ports.PORT18, GearSetting.RATIO_18_1, True)
+left_redirect = Motor(Ports.PORT17, GearSetting.RATIO_36_1, False)
+right_redirect = Motor(Ports.PORT18, GearSetting.RATIO_36_1, True)
 # declaring the motor groups (left_motors and right_motors are the left and right side of the drivetrain, respectively)
 left_motors = MotorGroup(left_a, left_b)
 right_motors = MotorGroup(right_a, right_b)
@@ -48,27 +48,31 @@ def autonomous():
     # spins redirect motors to score preload on the mobile goal
     redirect_motors.spin(REVERSE)
     # turns to move to corner
-    drivetrain.turn_for(LEFT, 150, DEGREES)
+    drivetrain.turn_for(LEFT, 125, DEGREES)
     # moves to corner
-    drivetrain.drive_for(FORWARD, 36, INCHES)
-    # turns to face the corner
-    drivetrain.turn_for(LEFT, 100, DEGREES)
+    drivetrain.drive_for(FORWARD, 26, INCHES)
     # stops the redirect motors
     redirect_motors.stop()
     # releases the mobile goal
     digital_out_a.set(False)
+    # makes it move slightly slower so as not to keep the goal by accident
+    drivetrain.set_drive_velocity(50, PERCENT)
+    # making sure aligned s
+    drivetrain.turn_for(LEFT, 30, DEGREES)
     # moves back in line with the other goal
-    drivetrain.drive_for(REVERSE, 36, INCHES)
+    drivetrain.drive_for(REVERSE, 24, INCHES)
+    # goes back to normal speed
+    drivetrain.set_drive_velocity(85, PERCENT)
     # turns to face the goal
-    drivetrain.turn_for(RIGHT, 80, DEGREES)
+    drivetrain.turn_for(LEFT, 155, DEGREES)
     # backs up to the goal
-    drivetrain.drive_for(FORWARD, 144, INCHES)
+    drivetrain.drive_for(FORWARD, 60, INCHES)
     # grabs mobile goal
     digital_out_a.set(True)
     # turns to face corner
-    drivetrain.turn_for(LEFT, 150, DEGREES)
+    drivetrain.turn_for(RIGHT, 25, DEGREES)
     # puts goal in corner
-    drivetrain.drive_for(FORWARD, 36, INCHES)
+    drivetrain.drive_for(FORWARD, 30, INCHES)
 
 def user_control():
     while True:
